@@ -1,27 +1,32 @@
 //! GTK application what uses the 'wandershaper' script what uses some networking tools to limit the bandwidth and helping saving data.
 
 use gtk::prelude::*;
-use gtk::{Application, ApplicationWindow};
+use gio::prelude::*;
+
+use gtk::Application;
 
 mod wondershaper;
 
 fn main() {
-    let builder = gtk::Builder::from_file(""); 
+    gtk::init();
     let app = Application::builder()
         .application_id("dev.henrybarreto.bandwidth-saving")
         .build();
 
-    app.connect_activate(|app| {
+    let builder = gtk::Builder::from_file("./config/ui.glade"); 
+
+    app.connect_activate(move |app| {
         // We create the main window.
-        let win = ApplicationWindow::builder()
-            .application(app)
-            .default_width(320)
-            .default_height(200)
-            .title("Hello, World!")
-            .build();
+        let win: gtk::Window = builder.object("win_main").unwrap();
 
         // Don't forget to make all widgets visible.
-        win.show_all();
+        win.show();
     });
+
+    app.connect_shutdown(|app| {
+        gtk::main_quit();
+    });
+
     app.run();
+    gtk::main();
 }

@@ -7,5 +7,6 @@ edition = "2018"
 
 [dependencies]
 gtk = "0.14.0"
+gio = "0.14.0"
 toml = "0.5.8"
 serde = {version= "1.0.126", features=["derive"]}
