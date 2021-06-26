@@ -1,7 +1,5 @@
-<p align="center">
 ![icon](icon.png)
-</p>
-
+  
 # Bandwidth Saving
 GTK application to help saving bandwidth.
 
