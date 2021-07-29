@@ -1,6 +1,8 @@
+use pnet::datalink::{NetworkInterface, interfaces};
 use serde::{Serialize, Deserialize};
 use std::fs::File;
 use std::io::{Read, Write};
+use std::error::Error;
 
 /**
   Structure with the main methods to perfom action in the wondershaper script
@@ -14,6 +16,16 @@ impl Wondershaper {
     Wondershaper {
       wondershaper_config: Wondershaper::load_configuration_file(configuration_file_path)
     }
+  }
+  fn get_network_interfaces_name() -> Vec<String> {
+    interfaces().iter()
+    .map(|interface| interface.name.to_owned())
+    .collect::<Vec<String>>()
+  }
+
+  fn bandwidth_save(inteface: String, download_speed: String, upload_speed: String) -> Result<(), Box<dyn Error>> {
+    // TODO Fazer a implementção principal da aplicação
+    Ok(())
   }
 
   /**
@@ -41,7 +53,7 @@ impl Wondershaper {
       .expect("Could not create the configuration file");
     let wondershaper_file_string= toml::to_string(
         wondershaper_config
-      ).unwrap();
+      ).expect("Could not convert the wodershaper config file to toml");
     let wondershaper_file_bytes = wondershaper_file_string.as_bytes();
     wondershaper_file.write_all(
       &wondershaper_file_bytes
