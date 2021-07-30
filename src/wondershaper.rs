@@ -68,20 +68,20 @@ impl Wondershaper {
 */
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct WondershaperConfig {
-    IFACE: String,
-    DSPEED: String,
-    USPEED: String,
-    HIPRIODST: Option<String>,
-    COMMONOPTIONS: Option<String>,
-    NOPRIOHOSTSRC: Option<u16>,
-    NOPRIOHOSTDST: Option<String>,
-    NOPRIOPORTSRC: Option<String>,
-    NOPRIOPORTDST: Option<String>,
+    pub IFACE: String,
+    pub DSPEED: String,
+    pub USPEED: String,
+    pub HIPRIODST: Option<String>,
+    pub COMMONOPTIONS: Option<String>,
+    pub NOPRIOHOSTSRC: Option<u16>,
+    pub NOPRIOHOSTDST: Option<String>,
+    pub NOPRIOPORTSRC: Option<String>,
+    pub NOPRIOPORTDST: Option<String>,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct WondershaperConfigFile {
-    wondershaper: WondershaperConfig
+    pub wondershaper: WondershaperConfig
 }
 
 
