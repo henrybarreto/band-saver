@@ -62,7 +62,9 @@ impl Wondershaper {
         let mut wondershaper_file =
             File::create(configuration_file_path).expect("Could not create the configuration file");
         let wondershaper_file_string = toml::to_string(wondershaper_config)
-            .expect("Could not convert the wodershaper config file to toml");
+            .expect("Could not convert the wodershaper config file to toml")
+            .replace(" ", "")
+            .to_string();
         let wondershaper_file_bytes = wondershaper_file_string.as_bytes();
         wondershaper_file
             .write_all(&wondershaper_file_bytes)
