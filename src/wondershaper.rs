@@ -17,7 +17,7 @@ impl Wondershaper {
       wondershaper_config: Wondershaper::load_configuration_file(configuration_file_path)
     }
   }
-  fn get_network_interfaces_name() -> Vec<String> {
+  pub fn get_network_interfaces_name() -> Vec<String> {
     interfaces().iter()
     .map(|interface| interface.name.to_owned())
     .collect::<Vec<String>>()
@@ -92,6 +92,27 @@ mod wondershaper_test {
   fn create_wondershaper_file_test() {
     let wondershaper_config = WondershaperConfig {
       IFACE: "wlan0".to_string(),
+      DSPEED: "1024".to_string(),
+      USPEED: "1024".to_string(),
+      HIPRIODST: Option::None,
+      COMMONOPTIONS: Option::None,
+      NOPRIOHOSTSRC: Option::None,
+      NOPRIOHOSTDST: Option::None,
+      NOPRIOPORTSRC: Option::None,
+      NOPRIOPORTDST: Option::None,
+    };
+    let wondershaper_config_file = WondershaperConfigFile {
+      wondershaper: wondershaper_config
+    };
+
+    Wondershaper::create_cofiguration_file(
+      "config/wondershaper.conf".to_string(), 
+      &wondershaper_config_file);
+  }
+  fn create_wondershaper_file_with_real_interfaace_test() {
+    let interfaces = Wondershaper::get_network_interfaces_name();
+    let wondershaper_config = WondershaperConfig {
+      IFACE: interfaces[1].clone(),
       DSPEED: "1024".to_string(),
       USPEED: "1024".to_string(),
       HIPRIODST: Option::None,

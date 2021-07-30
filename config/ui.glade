@@ -62,59 +62,6 @@
               </packing>
             </child>
             <child>
-              <object class="GtkComboBoxText">
-                <property name="name">cbb_upload-speed</property>
-                <property name="width-request">80</property>
-                <property name="height-request">40</property>
-                <property name="visible">True</property>
-                <property name="can-focus">False</property>
-                <items>
-                  <item translatable="yes">1MB</item>
-                  <item translatable="yes">2MB</item>
-                  <item translatable="yes">3MB</item>
-                </items>
-              </object>
-              <packing>
-                <property name="left-attach">2</property>
-                <property name="top-attach">2</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkComboBoxText">
-                <property name="name">cbb_download-speed</property>
-                <property name="width-request">80</property>
-                <property name="height-request">40</property>
-                <property name="visible">True</property>
-                <property name="can-focus">False</property>
-                <items>
-                  <item translatable="yes">1MB</item>
-                  <item translatable="yes">2MB</item>
-                  <item translatable="yes">3MB</item>
-                </items>
-              </object>
-              <packing>
-                <property name="left-attach">2</property>
-                <property name="top-attach">1</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkComboBoxText">
-                <property name="name">cbb_network-interfaces</property>
-                <property name="width-request">80</property>
-                <property name="height-request">40</property>
-                <property name="visible">True</property>
-                <property name="can-focus">False</property>
-                <items>
-                  <item translatable="yes">wlan0</item>
-                  <item translatable="yes">eth0</item>
-                </items>
-              </object>
-              <packing>
-                <property name="left-attach">2</property>
-                <property name="top-attach">0</property>
-              </packing>
-            </child>
-            <child>
               <object class="GtkLabel">
                 <property name="name">lbn_download-speed</property>
                 <property name="width-request">116</property>
@@ -127,6 +74,41 @@
               <packing>
                 <property name="left-attach">0</property>
                 <property name="top-attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkComboBoxText" id="cbb_network_interfaces">
+                <property name="name">cbb_network_interfaces</property>
+                <property name="width-request">80</property>
+                <property name="height-request">40</property>
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+              </object>
+              <packing>
+                <property name="left-attach">2</property>
+                <property name="top-attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="et_downlaod_speed">
+                <property name="name">et_downlaod_speed</property>
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+              </object>
+              <packing>
+                <property name="left-attach">2</property>
+                <property name="top-attach">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="et_upload_speed">
+                <property name="name">et_upload_speed</property>
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+              </object>
+              <packing>
+                <property name="left-attach">2</property>
+                <property name="top-attach">2</property>
               </packing>
             </child>
             <child>
@@ -153,7 +135,7 @@
             <property name="halign">center</property>
             <property name="valign">center</property>
             <child>
-              <object class="GtkButton">
+              <object class="GtkButton" id="btn_apply">
                 <property name="label" translatable="yes">Apply</property>
                 <property name="name">btn_apply</property>
                 <property name="width-request">90</property>
