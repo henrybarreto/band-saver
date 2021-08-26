@@ -6,7 +6,7 @@ Saver your data.
 This is a GUI application to generate and run `wandershaper` config file.
 
 ## How to use?
-> TO USE IT, YOU **NEED** `wondershaper` INSTALLED SCRIPT INSTALLED.
+> TO USE IT, YOU **NEED** `wondershaper` SCRIPT INSTALLED.
 
 To compile, you'll need the `cargo` tool installed.
 ### Build 
