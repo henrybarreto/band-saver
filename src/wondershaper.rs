@@ -3,6 +3,7 @@ use serde::{Deserialize, Serialize};
 use std::error::Error;
 use std::fs::File;
 use std::io::{Read, Write};
+use std::process::{Child, Command};
 
 /**
   Structure with the main methods to perfom action in the wondershaper script
@@ -17,21 +18,21 @@ impl Wondershaper {
             wondershaper_config: Wondershaper::load_configuration_file(configuration_file_path),
         }
     }
-    pub fn get_network_interfaces_name() -> Vec<String> {
+    pub fn list_network_interfaces_name() -> Vec<String> {
         interfaces()
             .iter()
             .map(|interface| interface.name.to_owned())
             .collect::<Vec<String>>()
     }
 
-    fn bandwidth_save(
-        inteface: String,
-        download_speed: String,
-        upload_speed: String,
-    ) -> Result<(), Box<dyn Error>> {
-        // TODO Fazer a implementção principal da aplicação
-        Ok(())
-    }
+    // fn bandwidth_save(
+    //     inteface: String,
+    //     download_speed: String,
+    //     upload_speed: String,
+    // ) -> Result<(), Box<dyn Error>> {
+    //     // TODO Fazer a implementção principal da aplicação
+    //     Ok(())
+    // }
 
     /**
       Loading a wondershaper.conf file from a path and return a WondershaperConfig.
@@ -72,11 +73,16 @@ impl Wondershaper {
 
         return wondershaper_file_bytes.to_vec();
     }
+
+    pub fn run() -> Result<Child, impl Error> {
+        Command::new("wondershaper").arg("-p").spawn()
+    }
 }
 
 /**
   Labels accepted for wondershaper configuration file
 */
+//TODO Fix the non_snake_case problem
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct WondershaperConfig {
     pub IFACE: String,
@@ -136,7 +142,7 @@ mod wondershaper_test {
         );
     }
     fn create_wondershaper_file_with_real_interfaace_test() {
-        let interfaces = Wondershaper::get_network_interfaces_name();
+        let interfaces = Wondershaper::list_network_interfaces_name();
         let wondershaper_config = WondershaperConfig {
             IFACE: interfaces[1].clone(),
             DSPEED: "1024".to_string(),

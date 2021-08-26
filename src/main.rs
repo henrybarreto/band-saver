@@ -6,13 +6,16 @@ use gio::{glib::GString, prelude::*};
 use gtk::prelude::*;
 
 use gtk::Application;
+use log::{debug, error, info};
+use simple_logger::SimpleLogger;
 use wondershaper::{Wondershaper, WondershaperConfig, WondershaperConfigFile};
 
 mod wondershaper;
 
 fn main() {
+    SimpleLogger::new().init().unwrap();
     // let wondershaper: Wondershaper = Wondershaper::new("./config/wondershaper.conf".to_string());
-    let interfaces: Rc<Vec<String>> = Rc::new(Wondershaper::get_network_interfaces_name());
+    let interfaces: Rc<Vec<String>> = Rc::new(Wondershaper::list_network_interfaces_name());
     // let wondershaper_config = Wondershaper::create_cofiguration_file("./config/wondershaper.conf", wondershaper_config);
     gtk::init().expect("Could not init the gtk");
     let app = Application::builder()
@@ -70,12 +73,23 @@ fn main() {
                 wondershaper: wondershaper_config,
             };
             Wondershaper::create_cofiguration_file(
-                "./config/wondershaper.conf".to_string(),
+                "/etc/systemd/wondershaper.conf".to_string(),
                 &wondershaper_config_file,
             );
-
-            process::exit(0);
+            let cmd_child = Wondershaper::run();
+            match cmd_child {
+                Ok(child) => {
+                    info!("Wondershaper command executed");
+                    debug!("{:?}", child.wait_with_output());
+                }
+                Err(err) => {
+                    error!("{:#?}", err);
+                }
+            }
             Inhibit(false)
+        });
+        win_main.connect_destroy(|_| {
+            gtk::main_quit();
         });
 
         insert_data_combo_box_text(&cbb_network_intefaces, interfaces.clone().to_vec());

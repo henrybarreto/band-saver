@@ -1,8 +1,27 @@
-![icon](icon.png)
-  
 # Bandwidth Saving
-GTK application to help saving bandwidth.
+Saver your data.
 
 ## How it works?
-This application uses the 'wandershaper' script what uses some networking tools to limit the bandwidth and helping saving data.
+This is a GUI application to generate and run `wandershaper` config file.
 
+## How to use?
+> TO USE IT, YOU **NEED** `wondershaper` INSTALLED SCRIPT INSTALLED.
+
+To compile, you'll need the `cargo` tool installed.
+### Build 
+```sh
+make build
+```
+
+### Run 
+```sh
+make run 
+```
+
+## Interface
+
+### Interface clean
+![Interface clean](interface_clean.png)
+
+### Interface filled 
+![Interface filled](interface_filled.png)

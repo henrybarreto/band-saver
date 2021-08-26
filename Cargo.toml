@@ -9,5 +9,7 @@ edition = "2018"
 gtk = "0.14.0"
 gio = "0.14.0"
 toml = "0.5.8"
+log = "0.4.14"
+simple_logger = "1.13.0"
 serde = {version= "1.0.126", features=["derive"]}
 pnet = "0.28.0"
