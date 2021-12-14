@@ -9,6 +9,13 @@ This is a GUI application to generate and run `wandershaper` config file.
 > TO USE IT, YOU **NEED** `wondershaper` SCRIPT INSTALLED.
 
 To compile, you'll need the `cargo` tool installed.
+
+### Check 
+Checks if wondershaper is installed
+```sh
+make check
+```
+
 ### Build 
 ```sh
 make build
@@ -19,10 +26,8 @@ make build
 make run 
 ```
 
-## Interface
-
-### Interface clean
-![Interface clean](interface_clean.png)
-
-### Interface filled 
-![Interface filled](interface_filled.png)
+### Bin 
+Runs the binary
+```sh
+sudo make bin 
+```
