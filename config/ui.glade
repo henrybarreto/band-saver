@@ -129,11 +129,27 @@
           </packing>
         </child>
         <child>
-          <object class="GtkFixed">
+          <object class="GtkImage">
+            <property name="name">img_logo</property>
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="icon-name">network-transmit-receive</property>
+          </object>
+          <packing>
+            <property name="left-attach">1</property>
+            <property name="top-attach">0</property>
+          </packing>
+        </child>
+        <child>
+          <!-- n-columns=5 n-rows=1 -->
+          <object class="GtkGrid">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
             <property name="halign">center</property>
             <property name="valign">center</property>
+            <property name="hexpand">True</property>
+            <property name="vexpand">True</property>
+            <property name="column-spacing">10</property>
             <child>
               <object class="GtkButton" id="btn_apply">
                 <property name="label" translatable="yes">Apply</property>
@@ -146,23 +162,41 @@
                 <property name="halign">center</property>
                 <property name="valign">center</property>
               </object>
+              <packing>
+                <property name="left-attach">1</property>
+                <property name="top-attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="btn_reset">
+                <property name="label" translatable="yes">Reset</property>
+                <property name="name">btn_apply</property>
+                <property name="width-request">90</property>
+                <property name="height-request">50</property>
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="receives-default">True</property>
+                <property name="halign">center</property>
+                <property name="valign">center</property>
+              </object>
+              <packing>
+                <property name="left-attach">3</property>
+                <property name="top-attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
             </child>
           </object>
           <packing>
             <property name="left-attach">1</property>
             <property name="top-attach">3</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkImage">
-            <property name="name">img_logo</property>
-            <property name="visible">True</property>
-            <property name="can-focus">False</property>
-            <property name="icon-name">network-transmit-receive</property>
-          </object>
-          <packing>
-            <property name="left-attach">1</property>
-            <property name="top-attach">0</property>
           </packing>
         </child>
         <child>
