@@ -1,4 +1,4 @@
-use pnet::datalink::{interfaces, NetworkInterface};
+use pnet::datalink::{interfaces};
 use serde::{Deserialize, Serialize};
 use std::error::Error;
 use std::fs::File;
@@ -18,7 +18,9 @@ impl Wondershaper {
             wondershaper_config: Wondershaper::load_configuration_file(configuration_file_path),
         }
     }
-    pub fn list_network_interfaces_name() -> Vec<String> {
+
+    /// Get all system interfaces' name
+    pub fn get_interfaces() -> Vec<String> {
         interfaces()
             .iter()
             .map(|interface| interface.name.to_owned())
@@ -74,9 +76,17 @@ impl Wondershaper {
         return wondershaper_file_bytes.to_vec();
     }
 
-    pub fn run() -> Result<Child, impl Error> {
+    /// Reset wondershaper's limits
+    pub fn reset() -> Result<Child, impl Error> {
+        Command::new("wondershaper").arg("-c").arg("-p").spawn()
+    }
+
+    /// Rest and Apply wondershaper's limits
+    pub fn apply() -> Result<Child, impl Error> {
+        Wondershaper::reset().expect("Could not reset the wondershaper limits");
         Command::new("wondershaper").arg("-p").spawn()
     }
+    
 }
 
 /**
@@ -142,7 +152,7 @@ mod wondershaper_test {
         );
     }
     fn create_wondershaper_file_with_real_interfaace_test() {
-        let interfaces = Wondershaper::list_network_interfaces_name();
+        let interfaces = Wondershaper::get_interfaces();
         let wondershaper_config = WondershaperConfig {
             IFACE: interfaces[1].clone(),
             DSPEED: "1024".to_string(),
