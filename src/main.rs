@@ -1,4 +1,4 @@
-//! GTK application what uses the 'wandershaper' script what uses some networking tools to limit the bandwidth and helping saving data.
+//! BandwidthAID uses the `wondershaper` script to set speed limit to a selected network interface
 
 use std::{rc::Rc};
 use gio::{glib::GString, prelude::*};

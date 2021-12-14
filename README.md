@@ -1,9 +1,9 @@
-![Bandwidth logo](logo.png)
-# Bandwidth Saving
+![BandwidthAID logo](logo.png)
+# BandwidthAID
 Saver your data.
 
 ## How it works?
-This is a GUI application to generate and run `wandershaper` config file.
+It uses the `wondershaper` script to set speed limit to a selected network interface.
 
 ## How to use?
 > TO USE IT, YOU **NEED** `wondershaper` SCRIPT INSTALLED.
