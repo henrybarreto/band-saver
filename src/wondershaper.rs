@@ -3,7 +3,7 @@ use serde::{Deserialize, Serialize};
 use std::error::Error;
 use std::fs::File;
 use std::io::{Read, Write};
-use std::process::{Child, Command};
+use std::process::{Child, Command, Stdio};
 
 /**
   Structure with the main methods to perfom action in the wondershaper script
@@ -78,15 +78,20 @@ impl Wondershaper {
 
     /// Reset wondershaper's limits
     pub fn reset() -> Result<Child, impl Error> {
-        Command::new("wondershaper").arg("-c").arg("-p").spawn()
+        Command::new("wondershaper").arg("-c").arg("-p")
+            .stdout(Stdio::null())
+            .stderr(Stdio::null())
+            .spawn()
     }
 
     /// Rest and Apply wondershaper's limits
     pub fn apply() -> Result<Child, impl Error> {
         Wondershaper::reset().expect("Could not reset the wondershaper limits");
-        Command::new("wondershaper").arg("-p").spawn()
+        Command::new("wondershaper").arg("-p")
+            .stdout(Stdio::null())
+            .stderr(Stdio::null())
+            .spawn()
     }
-    
 }
 
 /**
