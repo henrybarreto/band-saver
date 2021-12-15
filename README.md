@@ -1,5 +1,5 @@
-![BandwidthAID logo](logo.png)
 # BandwidthAID
+![BandwidthAID logo](logo.png)
 GTK application to limit network speed to save bandwidth.
 
 ## How it works?
