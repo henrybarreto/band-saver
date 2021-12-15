@@ -1,6 +1,6 @@
 ![BandwidthAID logo](logo.png)
 # BandwidthAID
-Saver your data.
+GTK application to limit network speed to save bandwidth.
 
 ## How it works?
 It uses the `wondershaper` script to set speed limit to a selected network interface.
