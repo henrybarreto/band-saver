@@ -81,14 +81,11 @@ fn main() {
             );
 
             let cmd_child = Wondershaper::apply();
-            match cmd_child {
-                Ok(child) => {
-                    debug!("Wondershaper run command executed");
-                    trace!("{:?}", child.wait_with_output());
-                }
-                Err(err) => {
-                    error!("{:#?}", err);
-                }
+            if let Ok(child) = cmd_child {
+                debug!("Wondershaper stop command executed");
+                trace!("{:?}", child.wait_with_output());
+            } else {
+                error!("{:#?}", err);
             }
 
             Inhibit(false)
@@ -96,14 +93,11 @@ fn main() {
 
         btn_reset.connect_button_press_event(move |_btn, _event| {
             let cmd_child = Wondershaper::reset();
-            match cmd_child {
-                Ok(child) => {
-                    debug!("Wondershaper stop command executed");
-                    trace!("{:?}", child.wait_with_output());
-                }
-                Err(err) => {
-                    error!("{:#?}", err);
-                }
+            if let Ok(child) = cmd_child {
+                debug!("Wondershaper stop command executed");
+                trace!("{:?}", child.wait_with_output());
+            } else {
+                error!("{:#?}", err);
             }
 
             Inhibit(false)
