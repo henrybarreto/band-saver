@@ -16,7 +16,7 @@ fn main() {
     gtk::init().expect("Could not init the gtk");
 
     let app = Application::builder()
-        .application_id("dev.henrybarreto.bandwidth-saving")
+        .application_id("dev.henrybarreto.bandwidthaid")
         .build();
 
     let builder = gtk::Builder::from_file("./config/ui.glade");
