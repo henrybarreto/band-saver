@@ -156,6 +156,8 @@ mod wondershaper_test {
             &wondershaper_config_file,
         );
     }
+
+    #[test]
     fn create_wondershaper_file_with_real_interfaace_test() {
         let interfaces = Wondershaper::get_interfaces();
         let wondershaper_config = WondershaperConfig {
