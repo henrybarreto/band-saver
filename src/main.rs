@@ -82,10 +82,10 @@ fn main() {
 
             let cmd_child = Wondershaper::apply();
             if let Ok(child) = cmd_child {
-                debug!("Wondershaper stop command executed");
+                debug!("Wondershaper apply command executed");
                 trace!("{:?}", child.wait_with_output());
             } else {
-                error!("{:#?}", err);
+                error!("{:#?}", "Could not execute the wondershaper stop command");
             }
 
             Inhibit(false)
@@ -97,7 +97,7 @@ fn main() {
                 debug!("Wondershaper stop command executed");
                 trace!("{:?}", child.wait_with_output());
             } else {
-                error!("{:#?}", err);
+                error!("{:#?}", "Could not execute the wondershaper stop command");
             }
 
             Inhibit(false)
