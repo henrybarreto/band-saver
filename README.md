@@ -9,25 +9,3 @@ It uses the `wondershaper` script to set speed limit to a selected network inter
 > TO USE IT, YOU **NEED** `wondershaper` SCRIPT INSTALLED.
 
 To compile, you'll need the `cargo` tool installed.
-
-### Check 
-Checks if wondershaper is installed
-```sh
-make check
-```
-
-### Build 
-```sh
-make build
-```
-
-### Run 
-```sh
-make run 
-```
-
-### Bin 
-Runs the binary
-```sh
-sudo make bin 
-```
