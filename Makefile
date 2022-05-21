@@ -1,4 +1,3 @@
-debug: target/debug/bandwidthaid
-	@target/debug/bandwidthaid
-release: src/main.rs
-	@cargo build --release
+test:
+	@cargo build
+	@sudo ./target/debug/band-saver

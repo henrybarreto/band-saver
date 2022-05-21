@@ -1,15 +1,17 @@
 [package]
-name = "bandwidthaid"
+name = "band-saver"
+description = "Band Saver is a simple GTK application to help user to save your network bandwidth"
+keywords = ["gtk", "simple", "bandwidth", "saver"]
 version = "0.1.0"
 edition = "2021"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+authors = ["Henry Barreto <me@henrybarreto.dev>"]
 
 [dependencies]
-gtk = "0.14.0"
-gio = "0.14.0"
+gtk4 = "0.4.7"
+gio = "0.15.1"
 toml = "0.5.8"
-log = "0.4.14"
-simple_logger = "1.13.0"
+logs = "0.5.0"
 serde = {version= "1.0.126", features=["derive"]}
 pnet = "0.28.0"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html

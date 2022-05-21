@@ -9,7 +9,7 @@
     <property name="can-focus">False</property>
     <property name="halign">center</property>
     <property name="valign">center</property>
-    <property name="title" translatable="yes">Bandwidth AID</property>
+    <property name="title" translatable="yes">Band Saver</property>
     <property name="resizable">False</property>
     <property name="window-position">center</property>
     <property name="icon-name">network-transmit-receive</property>
